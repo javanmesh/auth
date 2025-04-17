@@ -5,37 +5,32 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "react-scripts build",
-    "dev": "concurrently \"nodemon server.js\" \"react-scripts start\"",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "webpack --mode production",
+    "dev:server": "nodemon server.js",
+    "dev:client": "webpack --mode development --watch",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\""
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-react": "^7.22.5",
+    "babel-loader": "^9.1.3",
     "concurrently": "^8.2.1",
-    "nodemon": "^3.0.1"
+    "css-loader": "^6.8.1",
+    "file-loader": "^6.2.0",
+    "nodemon": "^3.0.1",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   },
   "engines": {
     "node": "18.x"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "proxy": "http://localhost:5000"
+  }
 }
